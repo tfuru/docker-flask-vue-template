@@ -1,0 +1,15 @@
+version: '3.2'
+services:
+    flask:
+        build: flask/
+        container_name: flask
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - ./flask:/flask
+        environment:
+            - DUMMY=A
+        ports:
+          - '80:5000'            
+        restart: always
+        tty: true
+        command: ./run.sh
